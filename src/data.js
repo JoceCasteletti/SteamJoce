@@ -1,10 +1,23 @@
-/* Manejo de data */
+window.newsitems = STEAM.appnews.newsitems;
 
-// esta es una función de ejemplo
-// puedes ver como agregamos la función a nuestro objeto global window
+// Include retorna v o f si el texto que está en search está en item 
+const filterByFeedlabel = (news, search) => {
+  return news.filter(item => item.feedlabel.include(search));
+}
 
-const example = () => {
-  return 'example';
-};
+window.filterByFeedlabel = filterByFeedlabel;
 
-window.example = example;
+filterByFeedlabel(newsitems, 'Valve')
+
+// o
+
+const filterByFeedlabelEspanol = (noticias, textoABuscar) => {
+	const nuevoArreglo = noticias.filter(function (cadaItemDeLaData) {
+		console.log(`gid: "${cadaItemDeLaData.gid}" feedlabel: "${cadaItemDeLaData.feedlabel}"`);
+		console.log(`Retornó ${cadaItemDeLaData.feedlabel.includes(textoABuscar)}`);
+
+		return cadaItemDeLaData.feedlabel.includes(textoABuscar);
+	});
+
+	return nuevoArreglo;
+}
