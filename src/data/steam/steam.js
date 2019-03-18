@@ -124,4 +124,6 @@ const STEAM = {
     }],
     "count": 2587
   }
-};;
+};
+
+window.newsitems = STEAM.appnews.newsitems;

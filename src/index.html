@@ -1,20 +1,69 @@
+<!DOCTYPE html>
 <html>
-	<head></head>
-	<body>
-		<main>
-			<section>
-				<select id="fieldselect">
-					<option value="title">Título</option>
-					<option value="author">Author</option>
-					<option value="feedlabel">Fuente Noticia</option>
-				</select>
-				<input id="searchtext" type="text" placeholder="Buscar">
-			</section>
-			<section id="datasection">
-			</section>
-		</main>
-		<script type="text/javascript" src="data.js"></script>
-		<script type="text/javascript" src="app.js"></script>
-		<script type="text/javascript" src="main.js"></script>
-	</body>
+
+<head>
+  <title>Steam</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Steam</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <form class="form-inline my-2 my-lg-0 ml-auto">
+          <select id="fieldselect" class="form-control mr-sm-2">
+            <option value="title">Título</option>
+            <option value="author">Author</option>
+            <option value="feedlabel">Fuente Noticia</option>
+          </select>
+          <input id="searchtext" type="text" placeholder="Buscar" class="form-control mr-sm-2">
+          <select id="sortby" class="form-control mr-sm-2">
+            <option value="az">A-Z</option>
+            <option value="za">Z-A</option>
+          </select>
+          <button id="search" class="btn btn-outline-primary my-2 my-sm-0" type="button">Buscar</button>
+        </form>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section class="mb-4">
+        <ul  id="statistics" class="list-group">
+        </ul>
+    </section>
+    <section id="datasection" class="card-columns">
+      <!-- Aquí van las tarjetas -->
+    </section>
+  </main>
+  <footer class="bg-dark text-light">
+      <div class="row">
+        <div class="col col-sm-6 ">
+          <h5>Steam &copy; 2019-03</h5>
+        </div>
+        <div class="col col-sm-4 ">
+          <ul>
+            <li>Aviso legal</li>
+            <li>Condiciones Genereales de Uso</li>
+            <li>Política de Privacidad</li>
+            <li>Denunciar un contenido ilegal</li>
+          </ul>
+        </div>
+      </div>
+  </footer>
+  <script type="text/javascript" src="data/steam/steam.js"></script>
+  <script type="text/javascript" src="data.js"></script>
+  <script type="text/javascript" src="main.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+
 </html>

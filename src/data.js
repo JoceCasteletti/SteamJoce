@@ -1,23 +1,41 @@
-window.newsitems = STEAM.appnews.newsitems;
-
-// Include retorna v o f si el texto que está en search está en item 
-const filterByFeedlabel = (news, search) => {
-  return news.filter(item => item.feedlabel.include(search));
+// Función para filtrar, se específica la data un campo y porque filtrar 
+const filterByField = (news, field, search) => {
+  // Pasamos la búsqueda a minúscula toLowerCase
+  search = search.toLowerCase();
+  return news.filter(item => item[field].toLowerCase().includes(search));
 }
 
-window.filterByFeedlabel = filterByFeedlabel;
+window.filterByField = filterByField;
 
-filterByFeedlabel(newsitems, 'Valve')
-
-// o
-
-const filterByFeedlabelEspanol = (noticias, textoABuscar) => {
-	const nuevoArreglo = noticias.filter(function (cadaItemDeLaData) {
-		console.log(`gid: "${cadaItemDeLaData.gid}" feedlabel: "${cadaItemDeLaData.feedlabel}"`);
-		console.log(`Retornó ${cadaItemDeLaData.feedlabel.includes(textoABuscar)}`);
-
-		return cadaItemDeLaData.feedlabel.includes(textoABuscar);
-	});
-
-	return nuevoArreglo;
+// Función para ordenar la data
+const sortByField = (data, sortBy, sortOrder) => {
+  if (sortOrder === 'az') {
+    return data.sort((item1, item2) => item1[sortBy].localeCompare(item2[sortBy]));
+  } else if (sortOrder === 'za') {
+    return data.sort((item1, item2) => item1[sortBy].localeCompare(item2[sortBy])).reverse();
+  } else {
+    return data;
+  }
 }
+
+window.sortByField = sortByField;
+
+
+const computeStats = data => {
+
+  const statistics = new Map();
+
+  data.forEach((item) => {
+    if (!statistics.has(item.feedlabel)) {
+      statistics.set(item.feedlabel, 0);
+    }
+
+    let sum = statistics.get(item.feedlabel);
+
+    statistics.set(item.feedlabel, sum + 1);
+  })
+
+  return statistics
+}
+
+window.computeStats = computeStats

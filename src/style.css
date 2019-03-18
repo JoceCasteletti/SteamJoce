@@ -1,0 +1,13 @@
+body {   
+    background-image: url("img/steamfondo.jpg");
+    background-size: 1244px 700px;
+}
+
+#datasection > div  {
+    background-color: rgba(255, 255, 255, 0.85);
+}
+
+#statistics {
+    background-color: rgba(200, 255, 255, 0.85);
+    font-weight: bold;
+}
