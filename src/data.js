@@ -30,9 +30,9 @@ const computeStats = data => {
       statistics.set(item.feedlabel, 0);
     }
 
-    let sum = statistics.get(item.feedlabel);
+    let sum = statistics.get(item.feedlabel) + 1;
 
-    statistics.set(item.feedlabel, sum + 1);
+    statistics.set(item.feedlabel, sum);
   })
 
   return statistics
